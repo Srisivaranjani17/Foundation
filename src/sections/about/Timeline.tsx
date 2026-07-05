@@ -23,48 +23,70 @@ export function Timeline() {
           centered
         />
 
-        <div className="relative mt-16 mx-auto max-w-4xl">
-          {/* Mobile line */}
-          <div className="absolute left-6 top-0 bottom-0 w-[3px] rounded-full bg-forest-400/80 shadow-sm md:hidden" />
-          {/* Vertical central line (desktop only) */}
-          <div className="absolute left-1/2 top-0 bottom-0 hidden w-[3px] -translate-x-1/2 transform rounded-full bg-forest-400/80 shadow-sm md:block" />
+        <div className="relative mx-auto mt-16 max-w-5xl">
+          {/* Mobile rail */}
+          <div className="absolute bottom-0 left-6 top-0 w-[4px] rounded-full bg-brand-green shadow-[0_0_0_1px_rgba(63,163,77,0.15)] md:hidden" />
+          {/* Center spine */}
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-[4px] -translate-x-1/2 transform rounded-full bg-brand-green shadow-[0_0_0_1px_rgba(63,163,77,0.15)] md:block" />
 
-          <div className="flex flex-col gap-10 md:gap-8">
+          <div className="flex flex-col gap-10 md:gap-12">
             {timeline.map((event, idx) => {
               const isEven = idx % 2 === 0;
 
               return (
                 <div
                   key={event.id}
-                  className={`relative flex w-full flex-col items-start md:flex-row md:items-center ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
+                  className="relative md:grid md:grid-cols-[minmax(0,1fr)_56px_minmax(0,1fr)] md:items-start md:gap-x-6"
                 >
-                  {/* Left / Right Content Box */}
-                  <div className="w-full pl-14 md:w-1/2 md:pl-0 md:px-8 md:flex md:justify-center">
+                  {/* Mobile node */}
+                  <div className="absolute left-3 top-6 z-10 flex h-10 w-10 -translate-x-1/2 transform items-center justify-center rounded-full border-4 border-white bg-brand-green text-white shadow-md md:hidden">
+                    {iconMap[event.icon] || <FaAward size={20} />}
+                  </div>
+
+                  {/* Mobile card */}
+                  <div className="pl-14 md:hidden">
                     <AnimatedSection
-                      direction={isEven ? 'right' : 'left'}
-                      className="w-full max-w-md rounded-2xl border border-earth-150 bg-white p-5 shadow-sm transition-shadow hover:shadow-md md:p-6"
+                      direction="left"
+                      className="w-full rounded-2xl border border-earth-150 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
                     >
-                      <span className="inline-block text-xs font-semibold px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full font-heading mb-2">
+                      <span className="mb-2 inline-block rounded-full bg-amber-100 px-2.5 py-1 font-heading text-xs font-semibold text-amber-800">
                         {event.year}
                       </span>
-                      <h3 className="text-lg font-heading font-bold text-gray-800 mb-2">
+                      <h3 className="mb-2 text-lg font-heading font-bold text-gray-800">
                         {event.title}
                       </h3>
-                      <p className="text-gray-600 font-body text-sm leading-relaxed">
+                      <p className="text-sm leading-relaxed text-gray-600 font-body">
                         {event.description}
                       </p>
                     </AnimatedSection>
                   </div>
 
-                  {/* Icon Node (Center on desktop) */}
-                  <div className="absolute left-3 top-6 z-10 flex h-10 w-10 -translate-x-1/2 transform items-center justify-center rounded-full bg-forest-600 text-white shadow-md md:left-1/2 md:top-auto">
-                    {iconMap[event.icon] || <FaAward size={20} />}
+                  {/* Desktop / tablet left card */}
+                  <div
+                    className={`hidden md:flex ${
+                      isEven ? 'md:col-start-3 md:justify-self-start' : 'md:col-start-1 md:justify-self-end'
+                    }`}
+                  >
+                    <AnimatedSection
+                      direction={isEven ? 'right' : 'left'}
+                      className="w-full max-w-md rounded-2xl border border-earth-150 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                    >
+                      <span className="mb-2 inline-block rounded-full bg-amber-100 px-2.5 py-1 font-heading text-xs font-semibold text-amber-800">
+                        {event.year}
+                      </span>
+                      <h3 className="mb-2 text-lg font-heading font-bold text-gray-800">
+                        {event.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-gray-600 font-body">
+                        {event.description}
+                      </p>
+                    </AnimatedSection>
                   </div>
 
-                  {/* Empty Spacer side */}
-                  <div className="hidden w-full md:block md:w-1/2" />
+                  {/* Center node on tablet/desktop */}
+                  <div className="absolute left-1/2 top-6 z-10 hidden h-10 w-10 -translate-x-1/2 transform items-center justify-center rounded-full border-4 border-white bg-brand-green text-white shadow-md md:flex">
+                    {iconMap[event.icon] || <FaAward size={20} />}
+                  </div>
                 </div>
               );
             })}
