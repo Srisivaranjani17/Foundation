@@ -35,9 +35,9 @@ export function HeroSection() {
         style={{ background: 'radial-gradient(circle, #F59E2A, transparent)' }}
       />
 
-      <div className="container-custom relative z-10 flex min-h-[calc(100vh-72px)] items-center py-16">
-        <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col gap-6">
+      <div className="container-custom relative z-10 flex min-h-[calc(100vh-72px)] items-start py-10 sm:py-12 md:items-center md:py-16">
+        <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="flex flex-col items-center gap-5 text-center md:items-start md:text-left lg:gap-6">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export function HeroSection() {
               </p>
               <h1
                 className="font-heading font-bold leading-[1.15] text-[#1F2937]"
-                style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)' }}
+                style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)' }}
               >
                 {homeHero.title.split('\n').map((line, i) => (
                   <React.Fragment key={i}>
@@ -76,7 +76,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-xl font-body leading-relaxed text-[#4B5563]"
+              className="mx-auto max-w-xl font-body leading-relaxed text-[#4B5563] md:mx-0"
               style={{ fontSize: 'clamp(0.95rem, 2vw, 1.05rem)' }}
             >
               {homeHero.description}
@@ -86,7 +86,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4"
+              className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
             >
               <Button
                 as="a"
@@ -95,6 +95,7 @@ export function HeroSection() {
                 size="lg"
                 icon={<FaArrowRight size={18} />}
                 iconPosition="right"
+                className="w-full sm:w-auto"
               >
                 {homeHero.primaryCta.label}
               </Button>
@@ -103,6 +104,7 @@ export function HeroSection() {
                 href={homeHero.secondaryCta.href}
                 variant="secondary"
                 size="lg"
+                className="w-full sm:w-auto"
               >
                 {homeHero.secondaryCta.label}
               </Button>
@@ -112,7 +114,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-wrap justify-center gap-3 md:justify-start"
             >
               {homeHero.trustBadges.map((badge) => (
                 <div
@@ -132,13 +134,13 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative"
+            className="relative mt-2 w-full max-w-[420px] justify-self-center md:mt-0 md:max-w-none"
           >
             <div className="relative overflow-hidden rounded-3xl shadow-[0_20px_80px_rgba(63,163,77,0.2)]">
               <img
                 src={homeHero.heroImage}
                 alt="MIASei Foundation volunteers serving food to community"
-                className="h-full w-full object-cover"
+                className="h-[300px] w-full object-cover sm:h-[360px] md:h-full"
                 style={{ maxHeight: '520px' }}
                 onError={(e) => {
                   const t = e.target as HTMLImageElement;
@@ -161,7 +163,7 @@ export function HeroSection() {
                 scale: { delay: 0.8, duration: 0.5 },
                 y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" }
               }}
-              className="absolute md:-left-12 md:-top-6 top-4 left-4 rounded-2xl border border-gray-100 bg-white p-3.5 shadow-card-hover z-20"
+              className="absolute left-3 top-3 z-20 hidden rounded-2xl border border-gray-100 bg-white p-3.5 shadow-card-hover md:-left-12 md:-top-6 md:block"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e8f5ea] text-[#3FA34D]">
@@ -189,7 +191,7 @@ export function HeroSection() {
                 scale: { delay: 1, duration: 0.5 },
                 y: { repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }
               }}
-              className="absolute md:-right-12 md:-bottom-6 bottom-4 right-4 rounded-2xl border border-gray-100 bg-white p-3.5 shadow-card-hover z-20"
+              className="absolute bottom-3 right-3 z-20 hidden rounded-2xl border border-gray-100 bg-white p-3.5 shadow-card-hover md:-right-12 md:-bottom-6 md:block"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e8f5ea] text-[#3FA34D]">
