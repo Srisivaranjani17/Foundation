@@ -199,7 +199,7 @@ export function HeroSection() {
                 </div>
                 <div>
                   <p className="font-heading text-xl font-bold leading-none text-[#3FA34D]">
-                    10,000+
+                    60,000+
                   </p>
                   <p className="mt-0.5 text-xs font-body text-[#9CA3AF]">Meals Served</p>
                 </div>
