@@ -96,7 +96,7 @@ export const coreValues: CoreValue[] = [
 export const timeline: TimelineEvent[] = [
   {
     id: 'tl-1',
-    year: '2020',
+    year: 'Early 2025',
     title: 'The First Meal',
     description:
       'A small group of friends began distributing home-cooked meals to elderly patients outside government hospitals in Chennai — one meal, one heart at a time.',
@@ -104,15 +104,15 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: 'tl-2',
-    year: '2021',
+    year: 'Mid 2025',
     title: 'Community Expansion',
     description:
-      'Grew to 50 regular volunteers and expanded distribution to multiple hospitals and public areas. Served over 1,000 meals during the pandemic.',
+      'Grew to 50 regular volunteers and expanded distribution to multiple hospitals and public areas. Served over 1,000 meals as the movement gained momentum.',
     icon: 'users',
   },
   {
     id: 'tl-3',
-    year: '2022',
+    year: 'Mid 2025',
     title: 'Formalizing the Vision',
     description:
       'Began structured operations, established volunteer onboarding processes, and launched educational support programs for underprivileged children.',
@@ -120,7 +120,7 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: 'tl-4',
-    year: '2023',
+    year: 'Late 2025',
     title: 'Growing Impact',
     description:
       'Expanded emergency assistance programs, conducted 25+ community events, and built partnerships with local businesses and government bodies.',
@@ -128,7 +128,7 @@ export const timeline: TimelineEvent[] = [
   },
   {
     id: 'tl-5',
-    year: '2024',
+    year: 'Late 2025',
     title: 'Digital Transformation',
     description:
       'Launched online volunteer registration and donation platforms. Reached 400+ active volunteers and distributed 7,000+ meals.',
@@ -141,6 +141,14 @@ export const timeline: TimelineEvent[] = [
     description:
       'Officially registered as MIASei Voluntary Organisation under the Tamil Nadu Societies Act (Reg No: IV/35/2025), cementing our commitment to accountability.',
     icon: 'award',
+  },
+  {
+    id: 'tl-7',
+    year: '2026',
+    title: 'Scaling the Mission',
+    description:
+      'Expanding our outreach, strengthening volunteer systems, and preparing larger community programs to serve more families with consistency and care.',
+    icon: 'trending-up',
   },
 ];
 
@@ -179,3 +187,4 @@ export const aboutStats: StatItem[] = [
     color: '#7DD3FC',
   },
 ];
+
